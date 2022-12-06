@@ -5,18 +5,18 @@ import { Abril_Fatface } from '@next/font/google'
 import { Poppins } from '@next/font/google'
 import { useState } from 'react';
 import { Button, Dropdown } from 'reactstrap';
-import { DropdownToggle, DropdownMenu, DropdownItem, Navbar, Nav, NavItem } from 'reactstrap';
+import { DropdownToggle, DropdownMenu, DropdownItem, Navbar as BootstrapNavbar, Nav, NavItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const abril_fatface = Abril_Fatface({ weight: ['400'], subsets: ['latin'] })
 const poppins = Poppins({ weight: ['400'], subsets: ['latin'] })
 
-export const CustomNavbar = () => {
+export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
-    <Navbar className={`flex items-center flex-wrap ${styles.navbar}`}>
+    <BootstrapNavbar className={`flex items-center flex-wrap ${styles.navbar}`}>
       <Link style={{color: 'inherit', textDecoration: 'inherit'}} href='/' className='inline-flex items-center p-2 mr-4 '>
           <span className={`${abril_fatface.className} ${styles.logo}`}>
             ROMA INVICTA
@@ -51,6 +51,6 @@ export const CustomNavbar = () => {
           </Button>
         </NavItem>
       </Nav>
-    </Navbar>      
+    </BootstrapNavbar>      
   );
 };

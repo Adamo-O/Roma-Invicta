@@ -1,4 +1,3 @@
-// import { data } from "../../../data/data"
 import activities from '../../data/activities.json';
 import fs from 'fs';
 

@@ -160,6 +160,20 @@
   color: black;
 }
 
+.flexDiv {
+  display: flex; 
+  width: 745px; 
+  justify-content: space-between; 
+  gap: 40px;
+}
+
+.postButton {
+  margin-bottom: 0.5rem !important;
+  background-color: #7C5D3C !important; 
+  color: #FCE4C5 !important;
+  border: #7C5D3C !important;
+}
+
 .forumDropdownToggle {
   font-size: 20px;
   cursor: pointer;
