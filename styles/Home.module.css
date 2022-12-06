@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #FFF7ED;
 }
 
 .footer {
@@ -126,4 +127,53 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+.header {
+  font-size: 70px;
+  color: #684E32;
+
+}
+
+.subheader {
+  font-size: 40px;
+  color: #684E32;
+
+}
+.text {
+  color: #684E32;
+}
+
+.container {
+  background-color: #E9DFD1;
+  border-radius: 15px;
+}
+
+.logo {
+  font-size: 40px;
+  color: black;
+}
+
+.navbar {
+  background-color: #BEAA8C;
+}
+
+.commentButton {
+  font-size: 20px;
+  color: black;
+  padding-left: 40%;
+
+}
+
+.forumDropdown {
+  font-size: 20px;
+  color: red;
+}
+
+.signOutButton {
+  font-size: 40px;
+  color: #FCE4C5 !important;
+  margin-bottom: 10px;
+  background-color: #7C5D3C !important;
+  border:  #7C5D3C !important;
 }
