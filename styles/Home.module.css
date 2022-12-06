@@ -158,19 +158,17 @@
 .commentButton {
   font-size: 20px;
   color: black;
-  padding-left: 40%;
-
 }
 
-.forumDropdown {
+.forumDropdownToggle {
   font-size: 20px;
-  color: red;
+  cursor: pointer;
+
 }
 
 .signOutButton {
-  font-size: 40px;
+  font-size: 20px;
   color: #FCE4C5 !important;
-  margin-bottom: 10px;
   background-color: #7C5D3C !important;
   border:  #7C5D3C !important;
 }

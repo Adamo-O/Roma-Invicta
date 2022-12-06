@@ -43,6 +43,28 @@
       "requestVolunteers": true,
       "volunteerDescription": "Novice and advanced donkey riders that would like to assist the beginners.",
       "id": 4
+    },
+    {
+      "name": "Spear fishing",
+      "planner": "Adamo",
+      "description": "Grab a stick and sharpen it. Poke and feast!",
+      "location": "The lake",
+      "date": "1995-01-01",
+      "time": "",
+      "requestVolunteers": false,
+      "volunteerDescription": "",
+      "id": 5
+    },
+    {
+      "name": "JOUSTING 🏇",
+      "planner": "Adamo",
+      "description": "Our monthly jousting competition is back! Get your spears and get ready.",
+      "location": "Graecostadium",
+      "date": "2022-12-30",
+      "time": "18:00",
+      "requestVolunteers": true,
+      "volunteerDescription": "Seeking supervisors to ensure jousting is following regulations.",
+      "id": 6
     }
   ]
 }

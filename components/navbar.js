@@ -4,47 +4,53 @@ import styles from '../styles/Home.module.css'
 import { Abril_Fatface } from '@next/font/google'
 import { Poppins } from '@next/font/google'
 import { useState } from 'react';
-import { Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button, Dropdown } from 'reactstrap';
+import { DropdownToggle, DropdownMenu, DropdownItem, Navbar, Nav, NavItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const abril_fatface = Abril_Fatface({ weight: ['400'], subsets: ['latin'] })
 const poppins = Poppins({ weight: ['400'], subsets: ['latin'] })
 
+export const CustomNavbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  return (
+    <Navbar className={`flex items-center flex-wrap ${styles.navbar}`}>
+      <Link style={{color: 'inherit', textDecoration: 'inherit'}} href='/' className='inline-flex items-center p-2 mr-4 '>
+          <span className={`${abril_fatface.className} ${styles.logo}`}>
+            ROMA INVICTA
+          </span>
+      </Link>
+      <Nav style={{ gap: '40px', justifyContent: 'center', alignItems: 'center' }}>
 
-export const Navbar = ({ direction, ...args }) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
-    return (
-      <>
-        <nav className={`flex items-center flex-wrap ${styles.navbar}`}>
-          <Link style={{color: 'inherit', textDecoration: 'inherit'}} href='/' className='inline-flex items-center p-2 mr-4 '>
-              <span className={`${abril_fatface.className} ${styles.logo}`}>
-                ROMA INVICTA
-              </span>
-          </Link>
-
+        <NavItem>
           <Link style={{color: 'inherit', textDecoration: 'inherit'}} href='/' className={`${poppins.className} ${styles.commentButton}`}>
               Make Comment &nbsp;
           </Link>
+        </NavItem>
 
-        <Dropdown cssModule={styles} color="primary" isOpen={dropdownOpen} toggle={toggle} direction={direction} className={`${poppins.className} ${styles.forumDropdown}`}>
-            <DropdownToggle color="yellow" caret>Dropdown</DropdownToggle>
-            <DropdownMenu {...args}>
-                <DropdownItem>Chatroom</DropdownItem>
-                <DropdownItem>Announcements</DropdownItem>
-                <DropdownItem>Volunteer Board</DropdownItem>
-                <DropdownItem>Activities Board</DropdownItem>
+        <NavItem>
+          <Dropdown isOpen={dropdownOpen} toggle={toggle} direction='down'>
+            <DropdownToggle className={`${poppins.className} ${styles.forumDropdownToggle}`} 
+              tag='div'
+              caret
+            >Forum</DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem >Chatroom</DropdownItem>
+              <DropdownItem >Announcements</DropdownItem>
+              <DropdownItem >Volunteer Board</DropdownItem>
+              <DropdownItem >Activities Board</DropdownItem>
             </DropdownMenu>
-        </Dropdown>
+          </Dropdown>
+        </NavItem>
 
-          
-
-          <Button style={{color: 'inherit', textDecoration: 'inherit'}} href='/' className={`${poppins.className} ${styles.signOutButton}`}>
+        <NavItem>
+          <Button href='/' className={`${poppins.className} ${styles.signOutButton}`}>
               Sign Out
           </Button>
-        </nav>      
-      </>
-    );
-  };
+        </NavItem>
+      </Nav>
+    </Navbar>      
+  );
+};
