@@ -1,16 +1,22 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Abril_Fatface } from '@next/font/google'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { PostActivityModal } from '../components/postActivityModal'
 import { Button } from 'reactstrap'
 import { Navbar } from '../components/navbar';
+import Activity from '../components/activity'
+
+// *****************
+// Constant for event organizer name
+const eventOrganizerName = 'Adamo'
+// ****************
 
 const abril_fatface = Abril_Fatface({ weight: ['400'], subsets: ['latin'] })
 
-export default function Activities() {
+export default function Activities({ initialActivities }) {
   const [showForm, setShowForm] = useState(false);
-  const [activities, setActivities] = useState();
+  const [activities, setActivities] = useState(initialActivities);
 
   const postData = async (activityData) => {
     const res = await fetch('/api/activity', {
@@ -20,7 +26,8 @@ export default function Activities() {
       },
       body: JSON.stringify(activityData)
     });
-    setActivities(await res.json());
+    const newActivities = await res.json()
+    setActivities(newActivities);
   }
   
   return (
@@ -39,33 +46,45 @@ export default function Activities() {
         </h1>
         <p className={`${styles.text}`}>Which activities will you partake in?</p>
 
+        <div style={{ display: 'flex', width: '745px', justifyContent: 'space-between', gap: '10px' }}>
+          <h2 style={{ marginInline: 0,  }} className={`${abril_fatface.className} ${styles.subheader}`}>Planned Activities</h2>
+          <Button style={{ marginLeft: 'auto', marginBottom: '0.5rem' }} onClick={() => setShowForm(true)}>Post an Activity</Button>
+        </div>
         {
-          activities && activities.map(activity => (
-            <div>
-              <p className={`${abril_fatface.className} ${styles.subheader}`}>{activity.name}</p>
-              <div className={`${styles.container}`}>
-                <p className={`${styles.text}`}>{activity.description}</p>
-                <div>
-                  <p className={`${styles.text}`}>
-                    test
-                  </p>
-                </div>
-              </div>
+          // Filter only activities planned by logged in organizer
+          activities && activities.activities.filter(a => a.planner === eventOrganizerName).map((activity, index) => (
+            <div className='mb-3'>
+              <Activity key={index} activity={activity} />
             </div>
           ))
         }
 
-
-        
-        <Button onClick={() => setShowForm(true)}>Post an Activity</Button>
+        <h2 className={`${abril_fatface.className} ${styles.subheader}`}>Available Activities</h2>
+        {
+          // Show non-planned activities
+          activities && activities.activities.filter(a => a.planner !== eventOrganizerName).map((activity, index) => (
+            <div className='mb-3'>
+              <Activity key={index} activity={activity} />
+            </div>
+          ))
+        }
       </main>
       <PostActivityModal
         setShowForm={setShowForm}
         showForm={showForm}
         postData={postData}
-      >
-        Inside the form
-      </PostActivityModal>
+        eventOrganizerName={eventOrganizerName}
+       />
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/activity');
+  const initialActivities = await res.json();
+  return {
+    props: {
+      initialActivities
+    }
+  }
 }

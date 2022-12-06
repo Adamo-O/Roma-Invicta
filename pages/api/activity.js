@@ -11,7 +11,7 @@ export default function handler(req, res) {
     const { body } = req;
     activities.activities.push({...body, id: activities.activities.length + 1});
 
-    fs.writeFileSync('../../data/activities.json', JSON.stringify(activities, null, 2))
+    fs.writeFileSync('data/activities.json', JSON.stringify(activities, null, 2))
 
     return res.status(200).json(activities);
   }

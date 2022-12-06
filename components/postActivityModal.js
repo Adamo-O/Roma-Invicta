@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Button, Form, FormGroup, Row, Col, Label, Input, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const PostActivityModal = ({ showForm, setShowForm, postData }) => {
+export const PostActivityModal = ({ showForm, setShowForm, postData, eventOrganizerName }) => {
   const [formData, setFormData] = useState({
     name: '',
+    planner: eventOrganizerName,
     description: '',
     location: '',
     date: '',
@@ -31,12 +32,33 @@ export const PostActivityModal = ({ showForm, setShowForm, postData }) => {
             <Label for='activityName'>
               Activity Name
             </Label>
-            <Input id='activityName' type='text' name='name' value={formData.name || ''} onChange={handleChange} className='mb-3' />
+            <Input id='activityName' 
+              type='text' 
+              name='name' 
+              value={formData.name || ''} 
+              onChange={handleChange} 
+              className='mb-3' />
+
+            <Label for='activityPlanner'>
+              Activity Organizer
+            </Label>
+            <Input id='activityPlanner' 
+              disabled
+              type='text' 
+              name='planner' 
+              value={eventOrganizerName} 
+              onChange={handleChange} 
+              className='mb-3' />
 
             <Label for='activityDescription'>
               Description
             </Label>
-            <Input id='activityDescription' type='textarea' name='description' value={formData.description || ''} onChange={handleChange} className='mb-3' />
+            <Input id='activityDescription' 
+              type='textarea' 
+              name='description' 
+              value={formData.description || ''} 
+              onChange={handleChange} 
+              className='mb-3' />
 
             <Label for='activityLocation'>
               Location

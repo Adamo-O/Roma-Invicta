@@ -1,5 +1,48 @@
 {
   "activities": [
-
+    {
+      "name": "Apple bobbing 🍎",
+      "description": "Put mouth in bowl, get apple",
+      "planner": "Michael",
+      "location": "Village bowl",
+      "date": "2022-02-23",
+      "time": "12:45",
+      "requestVolunteers": false,
+      "volunteerDescription": "",
+      "id": 1
+    },
+    {
+      "name": "Break into the lord's quarters",
+      "planner": "Adamo",
+      "description": "Details to be further discussed in person 😈",
+      "location": "Announcement board",
+      "date": "2022-12-06",
+      "time": "16:00",
+      "requestVolunteers": false,
+      "volunteerDescription": "",
+      "id": 2
+    },
+    {
+      "name": "Watch the stars 🌠",
+      "planner": "Adamo",
+      "description": "Gaze into the beyond with us and reflect on our mortality",
+      "location": "Ezra Mountain",
+      "date": "2022-12-26",
+      "time": "22:00",
+      "requestVolunteers": false,
+      "volunteerDescription": "",
+      "id": 3
+    },
+    {
+      "name": "Learn to ride a donkey",
+      "planner": "Adamo",
+      "description": "A crucial lesson for any beginner donkey riders out there. ",
+      "location": "Censores Plains",
+      "date": "2023-04-14",
+      "time": "14:00",
+      "requestVolunteers": true,
+      "volunteerDescription": "Novice and advanced donkey riders that would like to assist the beginners.",
+      "id": 4
+    }
   ]
 }
