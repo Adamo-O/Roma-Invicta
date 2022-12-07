@@ -7,6 +7,9 @@ const Activity = ({ activity }) => {
         <p className={styles.activityName}>{activity.name}</p>
         <p>{activity.description}</p>
         <p>
+          <b>Organizer:</b> {activity.planner}
+        </p>
+        <p>
           <b>Where?</b> {activity.location}
         </p>
         <p>
