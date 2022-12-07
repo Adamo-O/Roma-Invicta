@@ -76,6 +76,17 @@
       "requestVolunteers": true,
       "volunteerDescription": "I NEED SOME CHILL.",
       "id": 7
+    },
+    {
+      "name": "burning the witches at the stake 🗿",
+      "planner": "Adamo",
+      "description": "haha women☕",
+      "location": "the stake duh",
+      "date": "2023-03-12",
+      "time": "18:06",
+      "requestVolunteers": true,
+      "volunteerDescription": "witches",
+      "id": 8
     }
   ]
 }

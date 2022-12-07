@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Row, Col, Label, Input, Modal, ModalBody, Moda
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const PostActivityModal = ({ showForm, setShowForm, postData, eventOrganizerName }) => {
-  const [formData, setFormData] = useState({
+  const emptyFormData = {
     name: '',
     planner: eventOrganizerName,
     description: '',
@@ -12,7 +12,8 @@ export const PostActivityModal = ({ showForm, setShowForm, postData, eventOrgani
     time: '',
     requestVolunteers: false,
     volunteerDescription: ''
-  })
+  }
+  const [formData, setFormData] = useState(emptyFormData)
 
   const handleChange = (e) => {
     setFormData(values => ({...values, [e.target.name] : (e.target.type === 'checkbox' ? e.target.checked : e.target.value)}));
@@ -21,6 +22,7 @@ export const PostActivityModal = ({ showForm, setShowForm, postData, eventOrgani
   const handleSumbit = () => {
     postData(formData);
     setShowForm(false);
+    setFormData(emptyFormData)
   }
 
   return (
