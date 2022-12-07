@@ -56,11 +56,14 @@ export default function Activities({ initialActivities }) {
         </div>
         {
           // Show only activities planned by logged in organizer
-          activities && activities.activities.filter(a => a.planner === eventOrganizerName).map((activity, index) => (
+          activities && 
+          activities.activities.includes(a => a.planner === eventOrganizerName) ?
+          activities.activities.filter(a => a.planner === eventOrganizerName).map((activity, index) => (
             <div className='mb-3'>
               <Activity key={index} activity={activity} />
             </div>
-          ))
+          )) :
+          <p>You have no planned activities.</p>
         }
 
         <div className={styles.flexDiv}>
